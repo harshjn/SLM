@@ -1,0 +1,28 @@
+#Display an image onto the SLM with a correction mask.
+#HelpSource: http://wavefrontshaping.net/index.php/57-community/tutorials/spatial-lights-modulators-slms/124-how-to-control-a-slm-with-python
+
+import slmpy
+import time
+import numpy as np
+from PIL import Image
+import cv2
+
+slm = slmpy.SLMdisplay(isImageLock = True)
+resX, resY = slm.getSize()
+# We use images twice smaller than the resolution of the slm
+#        i=0
+
+testIMG = Output
+img=np.array(testIMG, dtype=float)
+
+            
+correctionMaskFile = 'C:/harsh/LSH0200059.bmp';
+corr=cv2.imread(correctionMaskFile);
+corr = cv2.cvtColor(corr, cv2.COLOR_BGR2GRAY)
+corr = np.array(corr, dtype=float)
+
+SLMimg=np.array(np.mod(corr+img,256),dtype='uint8')
+
+slm.updateArray(SLMimg)
+#time.sleep(50)
+#slm.close()
