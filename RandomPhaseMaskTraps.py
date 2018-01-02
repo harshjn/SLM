@@ -34,7 +34,7 @@ def NUM(ratio,N=2):
         return 1
 def RandomPhaseMask(add1,add2,ratio=1.0,n=2):
 
-    screenx=796 #Check
+    screenx=792 #Check
     screeny=600
     
     Images=[]
